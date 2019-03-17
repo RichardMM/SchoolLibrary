@@ -1,0 +1,50 @@
+﻿<Page x:Class="SchoolLibrary.Pages.AddBook"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SchoolLibrary.Pages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+           TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+      Title="AddBook">
+    <Grid VerticalAlignment="Top" Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+ 
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style BasedOn="{StaticResource MaterialDesignTextBox}" TargetType="TextBox">
+                
+            </Style>
+        </Grid.Resources>
+
+
+        <TextBox x:Name="AccNO"  materialDesign:HintAssist.Hint="Accession No" Grid.Column="0" Grid.Row="0"/>
+        <TextBox    Grid.Column="0" Grid.Row="1"/>
+        <TextBox    Grid.Column="0" Grid.Row="2"/>
+        <TextBox    Grid.Column="0" Grid.Row="3"/>
+        <TextBox    Grid.Column="0" Grid.Row="4"/>
+        <TextBox    Grid.Column="1" Grid.Row="0"/>
+        <TextBox    Grid.Column="1" Grid.Row="1"/>
+        <TextBox    Grid.Column="1" Grid.Row="2"/>
+        <TextBox    Grid.Column="1" Grid.Row="3"/>
+    </Grid>
+
+</Page>
