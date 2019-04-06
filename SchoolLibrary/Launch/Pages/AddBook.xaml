@@ -21,30 +21,33 @@
             <ColumnDefinition/>
             
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
- 
-        </Grid.RowDefinitions>
+
         <Grid.Resources>
             <Style BasedOn="{StaticResource MaterialDesignTextBox}" TargetType="TextBox">
                 
             </Style>
         </Grid.Resources>
+        <Border Grid.Column="0" Padding="10">
+            <StackPanel >
+                <TextBox x:Name="AccNO"  materialDesign:HintAssist.Hint="Accession No" Grid.Column="0" Grid.Row="0"/>
+                <TextBox/>
+                <TextBox/>
+                <TextBox/>
+                <TextBox/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Column="1">
+            <StackPanel >
+                <TextBox   materialDesign:HintAssist.Hint="Accession No"/>
+                <TextBox/>
+                <TextBox/>
+                <TextBox/>
+                <TextBox/>
+            </StackPanel>
+        </Border>
 
 
-        <TextBox x:Name="AccNO"  materialDesign:HintAssist.Hint="Accession No" Grid.Column="0" Grid.Row="0"/>
-        <TextBox    Grid.Column="0" Grid.Row="1"/>
-        <TextBox    Grid.Column="0" Grid.Row="2"/>
-        <TextBox    Grid.Column="0" Grid.Row="3"/>
-        <TextBox    Grid.Column="0" Grid.Row="4"/>
-        <TextBox    Grid.Column="1" Grid.Row="0"/>
-        <TextBox    Grid.Column="1" Grid.Row="1"/>
-        <TextBox    Grid.Column="1" Grid.Row="2"/>
-        <TextBox    Grid.Column="1" Grid.Row="3"/>
     </Grid>
 
 </Page>
