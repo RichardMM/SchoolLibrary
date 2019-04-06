@@ -15,38 +15,58 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
       Title="AddBook">
-    <Grid VerticalAlignment="Top" Margin="20">
+    <Grid VerticalAlignment="Top" Margin="10 50 10 0" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
             
         </Grid.ColumnDefinitions>
+     
 
         <Grid.Resources>
             <Style BasedOn="{StaticResource MaterialDesignTextBox}" TargetType="TextBox">
-                
+                <Setter Property="Margin" Value="0 5 0 20"/>
+            </Style>
+            <Style TargetType="Border">
+                <Setter Property="Padding" Value="10"/>
             </Style>
         </Grid.Resources>
-        <Border Grid.Column="0" Padding="10">
+        
+        <Border Grid.Column="0" Grid.Row="0">
             <StackPanel >
+                <TextBlock Text="Acc NO:"/>
                 <TextBox x:Name="AccNO"  materialDesign:HintAssist.Hint="Accession No" Grid.Column="0" Grid.Row="0"/>
+                <TextBlock Text="Title:"/>
                 <TextBox/>
+                <TextBlock Text="ISBN No:"/>
                 <TextBox/>
+                <TextBlock Text="Author:"/>
                 <TextBox/>
+                <TextBlock Text="Edition:"/>
                 <TextBox/>
             </StackPanel>
         </Border>
 
-        <Border Grid.Column="1">
+        <Border Grid.Column="1" Grid.Row="0">
             <StackPanel >
-                <TextBox   materialDesign:HintAssist.Hint="Accession No"/>
+                <TextBlock Text="BookShelf No:"/>
+                <TextBox   materialDesign:HintAssist.Hint="BookShelf No"/>
+                <TextBlock Text="Row No:"/>
                 <TextBox/>
+                <TextBlock Text="Column No:"/>
                 <TextBox/>
+                <TextBlock Text="Count:"/>
                 <TextBox/>
-                <TextBox/>
+                
             </StackPanel>
         </Border>
-
+        <StackPanel Grid.ColumnSpan="2" Grid.Row="1">
+            <Button Width="200" Content="Save"/>
+        </StackPanel>
 
     </Grid>
 

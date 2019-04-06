@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolLibrary"
         mc:Ignorable="d"
-        Title="Library System" Height="450" Width="800"
+        Title="Library System" WindowState="Maximized"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
      TextElement.FontWeight="Regular"
@@ -16,7 +16,9 @@
      FontFamily="{DynamicResource MaterialDesignFont}"
         Loaded="Startup">
 
+    <ScrollViewer>
+        <Frame x:Name="PageHolder" Content="{Binding CurrentPage}" NavigationUIVisibility="Hidden" />
 
-    <Frame x:Name="PageHolder" Content="{Binding CurrentPage}" NavigationUIVisibility="Hidden" />
-
+    </ScrollViewer>
+    
 </Window>

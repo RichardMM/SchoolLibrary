@@ -1,0 +1,22 @@
+namespace SchoolLibrary.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class MakeIncrementing : DbMigration
+    {
+        public override void Up()
+        {
+            DropPrimaryKey("Users");
+            AlterColumn("dbo.Users", "Id", c => c.Int(nullable: false));
+            AddPrimaryKey("dbo.Users", "Id");
+        }
+        
+        public override void Down()
+        {
+            DropPrimaryKey("Users");
+            AlterColumn("dbo.Users", "Id", c => c.Int(nullable: false));
+            AddPrimaryKey("dbo.Users", "Id");
+        }
+    }
+}

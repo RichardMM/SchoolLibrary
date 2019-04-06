@@ -1,15 +1,15 @@
 ﻿
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Security.Cryptography;
-using SchoolLibrary.Utilities;
 
 namespace SchoolLibrary.Models
 {
+    using System.Security.Cryptography;
+    using SchoolLibrary.Utilities;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     class User
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public int Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
@@ -18,9 +18,9 @@ namespace SchoolLibrary.Models
         {
 
         }
-        public User(int id, string name, string password)
+        public User(string name, string password)
         {
-            Id = id;
+    
             Name = name;
             Password = password;
         }

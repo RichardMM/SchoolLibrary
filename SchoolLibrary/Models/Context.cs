@@ -1,9 +1,10 @@
-﻿using System.Data.Entity;
-
-using MySql.Data.EntityFramework;
-
+﻿
 namespace SchoolLibrary.Models
 {
+    using System.Data.Entity;
+
+    using MySql.Data.EntityFramework;
+
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
     class LibAppContext:DbContext
 
@@ -15,6 +16,8 @@ namespace SchoolLibrary.Models
 
         public DbSet<Book> Books { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Borrower> Borrowers { get; set; }
+        public DbSet<BorrowedItem> BorrowedItems { get; set; }
 
 
 

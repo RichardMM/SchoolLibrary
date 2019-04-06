@@ -3,7 +3,7 @@ using System.Windows;
 using SchoolLibrary.Models;
 using System.Security.Cryptography;
 using SchoolLibrary.ViewModel;
-using System.Windows.Navigation;
+using System.Linq;
 
 namespace SchoolLibrary
 {
@@ -36,9 +36,14 @@ namespace SchoolLibrary
 
 
 
-                User Obj = new User(id: 1, name: "admin", password: password);
-                DbConn.Users.Add(Obj);
-                DbConn.SaveChanges();
+                
+                int count = DbConn.Users.Count();
+                if (count == 0) {
+                    User Obj = new User(name: "admin", password: password);
+                    DbConn.Users.Add(Obj);
+                    DbConn.SaveChanges();
+                }
+  
 
                 //MessageBox.Show(DbConn.Users.Find(1).ConfirmPassword("123456").ToString());
                 DbConn.Dispose();
