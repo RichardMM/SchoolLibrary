@@ -4,10 +4,10 @@ namespace SchoolLibrary.Models
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    class BorrowedItem
+    public class BorrowedItem
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int StudentId { get; set; }
         public int BookId { get; set; }

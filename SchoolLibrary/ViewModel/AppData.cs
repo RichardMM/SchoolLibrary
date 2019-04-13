@@ -10,6 +10,7 @@ namespace SchoolLibrary.ViewModel
     using System.Windows;
     using System.Windows.Controls;
     using SchoolLibrary.Pages;
+    using System.Data.Entity.Validation; 
     public class AppViewModel : INotifyPropertyChanged
     {
         private string _userName;
@@ -58,10 +59,28 @@ namespace SchoolLibrary.ViewModel
         }
 
 
+        private Book currentBook;
+        public Book CurrentBook
+        {
+            get
+            {
+                return currentBook;
+            }
+            set
+            {
+                currentBook = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+     
+
+
         public AppViewModel()
         {
             CurrentPage = new Login(this); ;
             navBarVisibility = Visibility.Hidden;
+            CurrentBook = new Book();
         }
 
         public bool VerifyPassword(string password)
@@ -77,6 +96,27 @@ namespace SchoolLibrary.ViewModel
                 else
                 {
                     return result.First<User>().ConfirmPassword(password);
+                }
+
+            }
+        }
+        public void SaveBookItem()
+        {
+            using (LibAppContext DbConn = new LibAppContext())
+            {
+
+                try
+                {
+                    DbConn.Books.Add(CurrentBook);
+                    DbConn.SaveChangesAsync();
+
+                    MessageBox.Show(String.Format("{1} was Saved successfully \n Author - {0}", CurrentBook.Author, currentBook.Title));
+                    CurrentBook = new Book();
+                }
+                catch (DbEntityValidationException)
+                {
+
+                    MessageBox.Show("Mandatory Book Information is missing", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
             }

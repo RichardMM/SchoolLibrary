@@ -39,33 +39,33 @@
         <Border Grid.Column="0" Grid.Row="0">
             <StackPanel >
                 <TextBlock Text="Acc NO:"/>
-                <TextBox x:Name="AccNO"  materialDesign:HintAssist.Hint="Accession No" Grid.Column="0" Grid.Row="0"/>
+                <TextBox x:Name="AccNO"  materialDesign:HintAssist.Hint="Accession No" Grid.Column="0" Grid.Row="0" Text="{Binding CurrentBook.AccessionNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="Title:"/>
-                <TextBox/>
-                <TextBlock Text="ISBN No:"/>
-                <TextBox/>
+                <TextBox x:Name="TitleBox" Text="{Binding CurrentBook.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="ISBN No:" />
+                <TextBox x:Name="IsbnBox" Text="{Binding CurrentBook.ISBN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="Author:"/>
-                <TextBox/>
+                <TextBox x:Name="AuthorBox" Text="{Binding CurrentBook.Author, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="Edition:"/>
-                <TextBox/>
+                <TextBox x:Name="EditionBox" Text="{Binding CurrentBook.Edition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
         </Border>
 
         <Border Grid.Column="1" Grid.Row="0">
             <StackPanel >
                 <TextBlock Text="BookShelf No:"/>
-                <TextBox   materialDesign:HintAssist.Hint="BookShelf No"/>
-                <TextBlock Text="Row No:"/>
-                <TextBox/>
+                <TextBox x:Name="ShelfBox"   materialDesign:HintAssist.Hint="BookShelf No" Text="{Binding CurrentBook.BookshelfNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Row No:" />
+                <TextBox x:Name="RowBox" Text="{Binding CurrentBook.RowNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="Column No:"/>
-                <TextBox/>
+                <TextBox x:Name="ColumnBox" Text="{Binding CurrentBook.ColumnPosition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="Count:"/>
-                <TextBox/>
+                <TextBox x:Name="CountBox" Text="{Binding CurrentBook.Count, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 
             </StackPanel>
         </Border>
         <StackPanel Grid.ColumnSpan="2" Grid.Row="1">
-            <Button Width="200" Content="Save"/>
+            <Button x:Name="BookSaveButton" Width="200" Content="Save" Click="SaveBook"/>
         </StackPanel>
 
     </Grid>

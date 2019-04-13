@@ -94,6 +94,9 @@
     <Compile Include="Launch\Pages\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Launch\Pages\Students.xaml.cs">
+      <DependentUpon>Students.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Launch\Pages\ViewBooks.xaml.cs">
       <DependentUpon>ViewBooks.xaml</DependentUpon>
     </Compile>
@@ -108,6 +111,14 @@
     <Compile Include="Migrations\201904061702202_MoreModels.cs" />
     <Compile Include="Migrations\201904061702202_MoreModels.Designer.cs">
       <DependentUpon>201904061702202_MoreModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904131425250_BooksModelUpdate.cs" />
+    <Compile Include="Migrations\201904131425250_BooksModelUpdate.Designer.cs">
+      <DependentUpon>201904131425250_BooksModelUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904131511429_BooksModelRequireds.cs" />
+    <Compile Include="Migrations\201904131511429_BooksModelRequireds.Designer.cs">
+      <DependentUpon>201904131511429_BooksModelRequireds.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BorrowedItems.cs" />
@@ -127,6 +138,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Launch\Pages\AddBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Launch\Pages\Students.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -163,6 +178,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904061702202_MoreModels.resx">
       <DependentUpon>201904061702202_MoreModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904131425250_BooksModelUpdate.resx">
+      <DependentUpon>201904131425250_BooksModelUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904131511429_BooksModelRequireds.resx">
+      <DependentUpon>201904131511429_BooksModelRequireds.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
