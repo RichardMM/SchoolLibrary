@@ -1,17 +1,30 @@
-﻿using SchoolLibrary.Utilities;
-using System.Windows;
-using SchoolLibrary.Models;
-using System.Security.Cryptography;
-using SchoolLibrary.ViewModel;
-using System.Linq;
+﻿
 
 namespace SchoolLibrary
 {
+    using SchoolLibrary.Utilities;
+    using System.Windows;
+    using SchoolLibrary.Models;
+    using System.Security.Cryptography;
+    using SchoolLibrary.ViewModel;
+    using System.Linq;
+    using System.Windows.Controls;
+    using SchoolLibrary.Pages;
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        public AppViewModel ViewModel
+        {
+            get
+            {
+                return DataContext as AppViewModel;
+            }
+        }
+
+
         public MainWindow()
         {
 
@@ -19,8 +32,31 @@ namespace SchoolLibrary
             DataContext = new AppViewModel();
         }
 
+        public void NavigatePages(object sender, RoutedEventArgs e)
+        {
+            string senderName = ((MenuItem)sender).Name.ToString();
+            switch (senderName)
+            {
+                case "HomeButton":
+                    ViewModel.CurrentPage = new ViewBooks(ViewModel);
+                    break;
+                case "AddBooksButton":
+                    ViewModel.CurrentPage = new AddBook(ViewModel);
+                    break;
+                case "StudentsButton":
+                    //ViewModel.CurrentPage = new ViewBooks(ViewModel);
+                    break;
+                case "BorrowedBooksButton":
+                    //ViewModel.CurrentPage = new ViewBooks(ViewModel);
+                    break;
+
+
+            }
+        }
+
         private void Startup(object sender, RoutedEventArgs e)
         {
+            
             using (LibAppContext DbConn = new LibAppContext())
             {
                 string password;

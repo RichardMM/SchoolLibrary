@@ -1,28 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-namespace SchoolLibrary.Pages
+﻿namespace SchoolLibrary.Pages
 {
+
+    using System.Windows.Controls;
+    using SchoolLibrary.ViewModel;
+
     /// <summary>
     /// Interaction logic for VewBooks.xaml
     /// </summary>
     public partial class ViewBooks : Page
     {
-        public ViewBooks()
+        public AppViewModel ViewModel
+        {
+            get
+            {
+                return DataContext as AppViewModel;
+            }
+        }
+        public ViewBooks(AppViewModel viewModel)
         {
             InitializeComponent();
+            DataContext = viewModel;
         }
     }
 }

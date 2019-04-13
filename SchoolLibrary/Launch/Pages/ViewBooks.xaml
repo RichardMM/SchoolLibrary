@@ -3,12 +3,45 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:SchoolLibrary.Launch.Pages"
+      xmlns:local="clr-namespace:SchoolLibrary.Pages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ViewBooks">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="Aquamarine">
+            <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal" >
+                <StackPanel.Resources>
+                    <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                        <Setter Property="Margin" Value="10 10 10 10" />
+                        <Setter Property="Width" Value="100" />
+                    </Style>
+
+                </StackPanel.Resources>
+                <Button Content="Edit"/>
+                <Button Content="Lend Out"/>
+                <Button Content="Delete" Background="Red"/>
+            </StackPanel>
+        </Grid>
+
+        <DataGrid x:Name="BooksView" Grid.Row="1" HorizontalAlignment="Left" Height="344" 
+                   VerticalAlignment="Top" Margin="0,0,100,0">
+            <DataGrid.Columns>
+                <materialDesign:MaterialDataGridTextColumn Header="Id" Width="50"/>
+                <materialDesign:MaterialDataGridTextColumn Header="Title"  Width="*"/>
+                <materialDesign:MaterialDataGridTextColumn Header="Author"  Width="*"/>
+                <materialDesign:MaterialDataGridTextColumn Header="Count" Width="90" />
+                <materialDesign:MaterialDataGridTextColumn Header="Available" MaxWidth="90" />
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </Page>

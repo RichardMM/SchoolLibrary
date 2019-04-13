@@ -55,9 +55,6 @@
     <Reference Include="MySql.Data, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.15\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data.Entity.EF6, Version=6.10.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.Entity.6.10.8\lib\net452\MySql.Data.Entity.EF6.dll</HintPath>
-    </Reference>
     <Reference Include="MySql.Data.EntityFramework, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.EntityFramework.8.0.15\lib\net452\MySql.Data.EntityFramework.dll</HintPath>
     </Reference>
@@ -94,7 +91,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Launch\Pages\Login.xaml.cs" />
+    <Compile Include="Launch\Pages\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Launch\Pages\ViewBooks.xaml.cs">
       <DependentUpon>ViewBooks.xaml</DependentUpon>
     </Compile>
@@ -105,6 +104,10 @@
     <Compile Include="Migrations\201904061430308_MakeIncrementing.cs" />
     <Compile Include="Migrations\201904061430308_MakeIncrementing.Designer.cs">
       <DependentUpon>201904061430308_MakeIncrementing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904061702202_MoreModels.cs" />
+    <Compile Include="Migrations\201904061702202_MoreModels.Designer.cs">
+      <DependentUpon>201904061702202_MoreModels.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BorrowedItems.cs" />
@@ -157,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904061430308_MakeIncrementing.resx">
       <DependentUpon>201904061430308_MakeIncrementing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904061702202_MoreModels.resx">
+      <DependentUpon>201904061702202_MoreModels.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

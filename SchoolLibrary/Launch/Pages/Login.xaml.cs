@@ -1,11 +1,11 @@
 ﻿
-using System.Windows;
-using System.Windows.Controls;
-using SchoolLibrary.ViewModel;
 
 
 namespace SchoolLibrary.Pages
 {
+    using System.Windows;
+    using System.Windows.Controls;
+    using SchoolLibrary.ViewModel;
     /// <summary>
     /// Interaction logic for Login.xaml
     /// </summary>
@@ -30,7 +30,9 @@ namespace SchoolLibrary.Pages
             
            
             if (ViewModel.VerifyPassword(PasswordInput.Password)){
-                ViewModel.CurrentPage = new AddBook(viewModel: ViewModel);
+                //ViewModel.CurrentPage = new AddBook(viewModel: ViewModel);
+                ViewModel.NavBarVisibility = Visibility.Visible;
+                ViewModel.CurrentPage = new ViewBooks(viewModel: ViewModel);
             }
             else
             {

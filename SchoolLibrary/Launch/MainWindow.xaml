@@ -15,10 +15,18 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         Loaded="Startup">
+    <StackPanel Orientation="Vertical">
+        <Menu IsMainMenu="True" x:Name="MainMenu" Visibility="{Binding NavBarVisibility}">
+            <MenuItem Header="Home" x:Name="HomeButton" Click="NavigatePages"/>
+            <MenuItem Header="Add Books" x:Name="AddBooksButton" Click="NavigatePages"/>
+            <MenuItem Header="Students" x:Name="StudentsButton" Click="NavigatePages"/>
+            <MenuItem Header="Borrowed Books" x:Name="BorrowedBooksButton" Click="NavigatePages"/>
+        </Menu>
+        <ScrollViewer>
+            <Frame x:Name="PageHolder" Content="{Binding CurrentPage}" NavigationUIVisibility="Hidden" />
 
-    <ScrollViewer>
-        <Frame x:Name="PageHolder" Content="{Binding CurrentPage}" NavigationUIVisibility="Hidden" />
+        </ScrollViewer>
+    </StackPanel>
 
-    </ScrollViewer>
     
 </Window>

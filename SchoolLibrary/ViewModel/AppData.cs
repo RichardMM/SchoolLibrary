@@ -1,13 +1,15 @@
-﻿using SchoolLibrary.Models;
-using System.Linq;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System;
-using System.Windows.Controls;
-using SchoolLibrary.Pages;
+﻿
 
 namespace SchoolLibrary.ViewModel
 {
+    using SchoolLibrary.Models;
+    using System.Linq;
+    using System.ComponentModel;
+    using System.Runtime.CompilerServices;
+    using System;
+    using System.Windows;
+    using System.Windows.Controls;
+    using SchoolLibrary.Pages;
     public class AppViewModel : INotifyPropertyChanged
     {
         private string _userName;
@@ -22,6 +24,18 @@ namespace SchoolLibrary.ViewModel
             }
         }
 
+        private Visibility navBarVisibility;
+        public Visibility NavBarVisibility {
+            get
+            {
+                return navBarVisibility;
+            }
+            set
+            {
+                navBarVisibility = value;
+                NotifyPropertyChanged();
+            }
+        } 
 
         private Page _currentContentPage;
         public Page CurrentPage {
@@ -47,6 +61,7 @@ namespace SchoolLibrary.ViewModel
         public AppViewModel()
         {
             CurrentPage = new Login(this); ;
+            navBarVisibility = Visibility.Hidden;
         }
 
         public bool VerifyPassword(string password)
