@@ -7,13 +7,13 @@ namespace SchoolLibrary.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class MoreModels : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(MoreModels));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201904061702202_MoreModels"; }
+            get { return "201904191648479_init"; }
         }
         
         string IMigrationMetadata.Source

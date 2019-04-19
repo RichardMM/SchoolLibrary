@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolLibrary"
         mc:Ignorable="d"
-        Title="Library System" WindowState="Maximized"
+        Title="Avertis Library System" WindowState="Maximized"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
      TextElement.FontWeight="Regular"
@@ -19,7 +19,7 @@
         <Menu IsMainMenu="True" x:Name="MainMenu" Visibility="{Binding NavBarVisibility}">
             <MenuItem Header="Home" x:Name="HomeButton" Click="NavigatePages"/>
             <MenuItem Header="Add Books" x:Name="AddBooksButton" Click="NavigatePages"/>
-            <MenuItem Header="Students" x:Name="StudentsButton" Click="NavigatePages"/>
+            <MenuItem Header="Borrowers" x:Name="BorrowersButton" Click="NavigatePages"/>
             <MenuItem Header="Borrowed Books" x:Name="BorrowedBooksButton" Click="NavigatePages"/>
         </Menu>
         <ScrollViewer>

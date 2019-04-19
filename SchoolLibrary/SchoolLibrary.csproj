@@ -100,25 +100,9 @@
     <Compile Include="Launch\Pages\ViewBooks.xaml.cs">
       <DependentUpon>ViewBooks.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201904061006555_Initial.cs" />
-    <Compile Include="Migrations\201904061006555_Initial.Designer.cs">
-      <DependentUpon>201904061006555_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904061430308_MakeIncrementing.cs" />
-    <Compile Include="Migrations\201904061430308_MakeIncrementing.Designer.cs">
-      <DependentUpon>201904061430308_MakeIncrementing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904061702202_MoreModels.cs" />
-    <Compile Include="Migrations\201904061702202_MoreModels.Designer.cs">
-      <DependentUpon>201904061702202_MoreModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904131425250_BooksModelUpdate.cs" />
-    <Compile Include="Migrations\201904131425250_BooksModelUpdate.Designer.cs">
-      <DependentUpon>201904131425250_BooksModelUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904131511429_BooksModelRequireds.cs" />
-    <Compile Include="Migrations\201904131511429_BooksModelRequireds.Designer.cs">
-      <DependentUpon>201904131511429_BooksModelRequireds.cs</DependentUpon>
+    <Compile Include="Migrations\201904191648479_init.cs" />
+    <Compile Include="Migrations\201904191648479_init.Designer.cs">
+      <DependentUpon>201904191648479_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BorrowedItems.cs" />
@@ -170,20 +154,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201904061006555_Initial.resx">
-      <DependentUpon>201904061006555_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904061430308_MakeIncrementing.resx">
-      <DependentUpon>201904061430308_MakeIncrementing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904061702202_MoreModels.resx">
-      <DependentUpon>201904061702202_MoreModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904131425250_BooksModelUpdate.resx">
-      <DependentUpon>201904131425250_BooksModelUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904131511429_BooksModelRequireds.resx">
-      <DependentUpon>201904131511429_BooksModelRequireds.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904191648479_init.resx">
+      <DependentUpon>201904191648479_init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

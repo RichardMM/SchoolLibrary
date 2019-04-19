@@ -6,7 +6,7 @@ namespace SchoolLibrary.Models
     using SchoolLibrary.Utilities;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    class User
+    public class User
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]

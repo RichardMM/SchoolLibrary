@@ -24,19 +24,21 @@
                     </Style>
 
                 </StackPanel.Resources>
-                <Button Content="Edit"/>
+                <Button Content="Edit" Click="Button_Click" x:Name="EditButton"/>
                 <Button Content="Lend Out"/>
                 <Button Content="Delete" Background="Red"/>
             </StackPanel>
         </Grid>
 
-        <DataGrid x:Name="BooksView" Grid.Row="1" HorizontalAlignment="Left" Height="344" 
-                   VerticalAlignment="Top" Margin="0,0,100,0">
+        <DataGrid x:Name="BooksView" Grid.Row="1" HorizontalAlignment="Left" Height="344" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
+                  SelectedItem="{Binding Mode=OneWayToSource, Path=CurrentBook}"
+                  SelectionMode="Single"
+                   VerticalAlignment="Top" Margin="0,0,100,0" ItemsSource="{Binding Path=LibraryBooks}" AutoGenerateColumns="False" >
             <DataGrid.Columns>
-                <materialDesign:MaterialDataGridTextColumn Header="Id" Width="50"/>
-                <materialDesign:MaterialDataGridTextColumn Header="Title"  Width="*"/>
-                <materialDesign:MaterialDataGridTextColumn Header="Author"  Width="*"/>
-                <materialDesign:MaterialDataGridTextColumn Header="Count" Width="90" />
+                <materialDesign:MaterialDataGridTextColumn Header="Id" Width="50" Binding="{Binding Path=Id}"/>
+                <materialDesign:MaterialDataGridTextColumn Header="Title"  Width="*" Binding="{Binding Path=Title}"/>
+                <materialDesign:MaterialDataGridTextColumn Header="Author"  Width="*" Binding="{Binding Path=Author}"/>
+                <materialDesign:MaterialDataGridTextColumn Header="Count" Width="90" Binding="{Binding Path=Count}"/>
                 <materialDesign:MaterialDataGridTextColumn Header="Available" MaxWidth="90" />
 
 

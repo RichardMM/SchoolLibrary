@@ -10,9 +10,18 @@ namespace SchoolLibrary.ViewModel
     using System.Windows;
     using System.Windows.Controls;
     using SchoolLibrary.Pages;
-    using System.Data.Entity.Validation; 
+    using System.Data.Entity.Validation;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Data.Entity;
+
     public class AppViewModel : INotifyPropertyChanged
     {
+        
+
+        public LibAppContext AppDbCxt = new LibAppContext();
+
+
         private string _userName;
         public string UserName {
             get
@@ -36,7 +45,23 @@ namespace SchoolLibrary.ViewModel
                 navBarVisibility = value;
                 NotifyPropertyChanged();
             }
-        } 
+        }
+
+        private List<Book> libraryBooks;
+        public List<Book> LibraryBooks
+        {
+            get
+            {
+                return libraryBooks;
+            }
+            set
+            {
+                libraryBooks = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        
 
         private Page _currentContentPage;
         public Page CurrentPage {
@@ -64,6 +89,7 @@ namespace SchoolLibrary.ViewModel
         {
             get
             {
+   
                 return currentBook;
             }
             set
@@ -73,14 +99,50 @@ namespace SchoolLibrary.ViewModel
             }
         }
 
-     
+        private List<BorrowerType> possibleUserTypes;
 
+        public List<BorrowerType> PossibleUserTypes
+        {
+            get
+            {
+                if (possibleUserTypes == null)
+                {
+                    
+                    
+                        possibleUserTypes = AppDbCxt.BorrowerTypes.ToList();
+                    
+                }
+
+                return possibleUserTypes;
+            }
+
+        }
+
+
+        private List<Borrower> registeredBorrowers;
+        public List<Borrower> RegisteredBorrowers
+        {
+            get
+            {
+              
+                
+                return registeredBorrowers;
+            }
+            set { registeredBorrowers = value;  NotifyPropertyChanged(); }
+        }
 
         public AppViewModel()
         {
             CurrentPage = new Login(this); ;
             navBarVisibility = Visibility.Hidden;
-            CurrentBook = new Book();
+            currentBook = new Book();
+            using (LibAppContext conn = new LibAppContext())
+            {
+                LibraryBooks = conn.Books.ToList();
+                
+            }
+            registeredBorrowers = AppDbCxt.Borrowers.ToList();
+
         }
 
         public bool VerifyPassword(string password)
@@ -108,6 +170,7 @@ namespace SchoolLibrary.ViewModel
                 try
                 {
                     DbConn.Books.Add(CurrentBook);
+                    DbConn.Entry(currentBook).State = currentBook.Id == 0 ? EntityState.Added : EntityState.Modified;
                     DbConn.SaveChangesAsync();
 
                     MessageBox.Show(String.Format("{1} was Saved successfully \n Author - {0}", CurrentBook.Author, currentBook.Title));
@@ -120,6 +183,22 @@ namespace SchoolLibrary.ViewModel
                 }
 
             }
+        }
+
+        public void SaveRegisteredBorrowerDetails()
+        {
+            
+            
+                foreach(Borrower el in RegisteredBorrowers)
+                {
+               
+                AppDbCxt.Borrowers.Add(el);
+                AppDbCxt.Entry(el).State = el.Id == 0 ? EntityState.Added : EntityState.Modified;
+                AppDbCxt.SaveChanges();
+                }
+                
+                
+            
         }
     }
 }

@@ -3,6 +3,8 @@
 
     using System.Windows.Controls;
     using SchoolLibrary.ViewModel;
+    using SchoolLibrary.Pages;
+    using System.Windows;
 
     /// <summary>
     /// Interaction logic for VewBooks.xaml
@@ -21,5 +23,11 @@
             InitializeComponent();
             DataContext = viewModel;
         }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ViewModel.CurrentPage = new AddBook(ViewModel);
+        }
+
     }
 }

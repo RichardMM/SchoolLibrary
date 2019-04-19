@@ -6,9 +6,68 @@
       xmlns:local="clr-namespace:SchoolLibrary.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Students">
+      Title="Students"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="Aquamarine">
+            <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal" >
+                <StackPanel.Resources>
+                    <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                        <Setter Property="Margin" Value="10 10 10 10" />
+                        <Setter Property="Width" Value="120" />
+                    </Style>
+
+                </StackPanel.Resources>
+
+                <Button Content="Save Changes" Click="Save_Button_Click"/>
+                
+            </StackPanel>
+        </Grid>
+
+
+        <DataGrid x:Name="StudentsView" Grid.Row="1" HorizontalAlignment="Left" Height="344" CanUserAddRows="True" CanUserDeleteRows="True" IsReadOnly="False"
+                  SelectionMode="Single"
+                   VerticalAlignment="Top" Margin="0,0,100,0" 
+                  ItemsSource="{Binding RegisteredBorrowers}"
+                  AutoGenerateColumns="False" >
+
+            <DataGrid.Columns>
+                <materialDesign:MaterialDataGridTextColumn Header="Student/Staff No." Width="150" Binding="{Binding Path=IdentificationNumber}"/>
+                <materialDesign:MaterialDataGridTextColumn Header="FirstName" Width="120" Binding="{Binding Path=FirstName}"/>
+                <materialDesign:MaterialDataGridTextColumn Header="LastName"  Width="100" Binding="{Binding Path=LastName}"/>
+                <materialDesign:MaterialDataGridTextColumn Header="EmailAddress"  Width="140" Binding="{Binding Path=EmailAddress}"/>
+                <DataGridTemplateColumn Header="User Type">
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ComboBox 
+                                ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.PossibleUserTypes, Mode=OneWay}"
+                                SelectedItem="{Binding Path=TypeName}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Path=TypeName}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=TypeName.TypeName}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+
+
+            </DataGrid.Columns>
+
+
+        </DataGrid>
     </Grid>
 </Page>

@@ -10,6 +10,8 @@ namespace SchoolLibrary
     using System.Linq;
     using System.Windows.Controls;
     using SchoolLibrary.Pages;
+    using System.Collections.Generic;
+
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -38,13 +40,19 @@ namespace SchoolLibrary
             switch (senderName)
             {
                 case "HomeButton":
+                    using(LibAppContext conn = new LibAppContext())
+                    {
+                        ViewModel.LibraryBooks = conn.Books.ToList();
+                    }
+                    
                     ViewModel.CurrentPage = new ViewBooks(ViewModel);
                     break;
                 case "AddBooksButton":
+                    ViewModel.CurrentBook = new Book();
                     ViewModel.CurrentPage = new AddBook(ViewModel);
                     break;
-                case "StudentsButton":
-                    //ViewModel.CurrentPage = new ViewBooks(ViewModel);
+                case "BorrowersButton":
+                    ViewModel.CurrentPage = new Students(ViewModel);
                     break;
                 case "BorrowedBooksButton":
                     //ViewModel.CurrentPage = new ViewBooks(ViewModel);
@@ -69,9 +77,6 @@ namespace SchoolLibrary
 
 
                 }
-
-
-
                 
                 int count = DbConn.Users.Count();
                 if (count == 0) {
@@ -79,9 +84,21 @@ namespace SchoolLibrary
                     DbConn.Users.Add(Obj);
                     DbConn.SaveChanges();
                 }
-  
 
-                //MessageBox.Show(DbConn.Users.Find(1).ConfirmPassword("123456").ToString());
+                #region BorrowerTypes
+
+                int currentTypes = DbConn.BorrowerTypes.Count();
+                if (currentTypes == 0)
+                {
+                    //MessageBox.Show(currentTypes.ToString());
+                    List<BorrowerType> defaults = new List<BorrowerType> { new BorrowerType() { TypeName = "Student" },
+                                                                        new BorrowerType() { TypeName = "Teacher" }
+                                                                        };
+                    DbConn.BorrowerTypes.AddRange(defaults);
+                    DbConn.SaveChanges();
+                }
+                #endregion
+
                 DbConn.Dispose();
 
             }
