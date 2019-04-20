@@ -24,6 +24,11 @@ namespace SchoolLibrary.Models
                 .HasRequired<BorrowerType>(s => s.TypeName)
                 .WithMany(g => g.Borrowers)
                 .HasForeignKey<int>(s => s.TypeName_Id);
+
+            modelBuilder.Entity<BorrowedItem>()
+                .HasRequired<Book>(s => s.Book)
+                .WithMany(g => g.BorrowedItems)
+                .HasForeignKey<int>(s => s.BookId);
         }
        
     }

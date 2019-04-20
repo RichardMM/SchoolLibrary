@@ -25,7 +25,15 @@
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.CurrentPage = new AddBook(ViewModel);
+            if (ViewModel.CurrentBook?.Id == null || ViewModel.CurrentBook?.Id == 0)
+            {
+                MessageBox.Show("You Must select a book to be edit detail");
+            }
+            else
+            {
+                ViewModel.CurrentPage = new AddBook(ViewModel);
+            }
+            
         }
 
         private void LendButton(object sender, RoutedEventArgs e)

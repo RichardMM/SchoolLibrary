@@ -39,7 +39,7 @@
                 <materialDesign:MaterialDataGridTextColumn Header="Title"  Width="*" Binding="{Binding Path=Title}"/>
                 <materialDesign:MaterialDataGridTextColumn Header="Author"  Width="*" Binding="{Binding Path=Author}"/>
                 <materialDesign:MaterialDataGridTextColumn Header="Count" Width="90" Binding="{Binding Path=Count}"/>
-                <materialDesign:MaterialDataGridTextColumn Header="Available" MaxWidth="90" />
+                <materialDesign:MaterialDataGridTextColumn Header="Available" MaxWidth="90" Binding="{Binding Path=Available}"/>
 
 
             </DataGrid.Columns>

@@ -1,0 +1,49 @@
+﻿<Page x:Class="SchoolLibrary.Pages.BorrowedItemsView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SchoolLibrary.Pages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="BorrowedItems" Unloaded="Page_Unloaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="Aquamarine">
+            <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal" >
+                <StackPanel.Resources>
+                    <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                        <Setter Property="Margin" Value="10 10 10 10" />
+                        <Setter Property="Width" Value="150" />
+                    </Style>
+
+                </StackPanel.Resources>
+                <Button Content="Save Changes" Click="SaveButton_Click"  x:Name="SaveButton"/>
+                
+            </StackPanel>
+        </Grid>
+
+        <DataGrid Grid.Row="1" x:Name="BorrowViewGrid" Margin="0 8 0 0" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" 
+                  CanUserDeleteRows="False"
+                  materialDesign:DataGridAssist.CellPadding="13 8 8 8"
+                  materialDesign:DataGridAssist.ColumnHeaderPadding="8" ItemsSource="{Binding BorrowedBooksView}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=BorrowedId}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Borrower" Binding="{Binding Path=BorrowerName}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Book" Binding="{Binding Path=BorrowedBookName}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Borrow Date" Binding="{Binding Path=BorrowDate}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Due Date" Binding="{Binding Path=DueDate}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Days Lent" Binding="{Binding Path=DaysLent}" IsReadOnly="True" />
+                <DataGridCheckBoxColumn Header="Returned" Binding="{Binding Path=Returned}" IsReadOnly="False"
+                                        ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}" EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}"/>
+            </DataGrid.Columns>
+            
+        </DataGrid>
+    </Grid>
+</Page>

@@ -7,13 +7,13 @@ namespace SchoolLibrary.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class ChangeBowedItems : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangeBowedItems));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201904201324168_ChangeBowedItems"; }
+            get { return "201904201745368_init"; }
         }
         
         string IMigrationMetadata.Source
