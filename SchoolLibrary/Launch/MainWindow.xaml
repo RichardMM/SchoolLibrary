@@ -15,7 +15,7 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         Loaded="Startup">
-    <StackPanel Orientation="Vertical">
+    <StackPanel Orientation="Vertical" Height="1000">
         <Menu IsMainMenu="True" x:Name="MainMenu" Visibility="{Binding NavBarVisibility}">
             <MenuItem Header="Home" x:Name="HomeButton" Click="NavigatePages"/>
             <MenuItem Header="Add Books" x:Name="AddBooksButton" Click="NavigatePages"/>

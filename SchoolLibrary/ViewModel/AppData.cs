@@ -61,7 +61,8 @@ namespace SchoolLibrary.ViewModel
             }
         }
 
-        
+
+        public BorrowedItem LendBook { get; set; } = new BorrowedItem();
 
         private Page _currentContentPage;
         public Page CurrentPage {
@@ -89,7 +90,7 @@ namespace SchoolLibrary.ViewModel
         {
             get
             {
-   
+                
                 return currentBook;
             }
             set
@@ -98,6 +99,7 @@ namespace SchoolLibrary.ViewModel
                 NotifyPropertyChanged();
             }
         }
+
 
         private List<BorrowerType> possibleUserTypes;
 
@@ -136,6 +138,7 @@ namespace SchoolLibrary.ViewModel
             CurrentPage = new Login(this); ;
             navBarVisibility = Visibility.Hidden;
             currentBook = new Book();
+            
             using (LibAppContext conn = new LibAppContext())
             {
                 LibraryBooks = conn.Books.ToList();
@@ -199,6 +202,16 @@ namespace SchoolLibrary.ViewModel
                 
                 
             
+        }
+        public void SaveNewBorrow()
+        {
+            using(LibAppContext dbConn= new LibAppContext())
+            {
+                LendBook.BookId = CurrentBook.Id;
+                dbConn.BorrowedItems.Add(LendBook);
+                dbConn.SaveChanges();
+            }
+
         }
     }
 }

@@ -13,9 +13,18 @@ namespace SchoolLibrary.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
-        public String FirstName { get;  set; }
+        public String FirstName { get; set; }
         [Required]
         public String LastName { get; set; }
+
+        [NotMapped]
+        public String BothNames
+        {
+            get
+            {
+                return String.Format("{0} {1}", FirstName, LastName);
+            }
+        }
         public String EmailAddress { get; set; }
         public int TypeName_Id { get; set; }
         public virtual BorrowerType TypeName { get; set; }

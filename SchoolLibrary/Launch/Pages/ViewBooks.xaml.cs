@@ -3,7 +3,6 @@
 
     using System.Windows.Controls;
     using SchoolLibrary.ViewModel;
-    using SchoolLibrary.Pages;
     using System.Windows;
 
     /// <summary>
@@ -24,10 +23,22 @@
             DataContext = viewModel;
         }
 
-        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             ViewModel.CurrentPage = new AddBook(ViewModel);
         }
 
+        private void LendButton(object sender, RoutedEventArgs e)
+        {
+            if (ViewModel.CurrentBook?.Id == null || ViewModel.CurrentBook?.Id ==0)
+            {
+                MessageBox.Show("You Must select a book to be lent out");
+            }
+            else
+            {
+                ViewModel.CurrentPage = new Lend_Item(ViewModel);
+            }
+            
+        }
     }
 }

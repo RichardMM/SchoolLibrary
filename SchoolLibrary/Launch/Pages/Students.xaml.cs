@@ -26,5 +26,11 @@ namespace SchoolLibrary.Pages
         {
             ViewModel.SaveRegisteredBorrowerDetails();
         }
+
+        private void Students_DataGrid_Unloaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            
+            RegisteredBorrowerView.CancelEdit(DataGridEditingUnit.Row);
+        }
     }
 }
