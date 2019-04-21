@@ -73,7 +73,7 @@ namespace SchoolLibrary
                 using (MD5 md5Hash = MD5.Create())
                 {
                     EncryptionTools obj = new EncryptionTools(md5Hash);
-                    password = obj.GetMd5Hash("123456");
+                    password = obj.GetMd5Hash("avertis");
 
 
                 }

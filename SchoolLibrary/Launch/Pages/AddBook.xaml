@@ -61,7 +61,10 @@
                 <TextBox x:Name="ColumnBox" Text="{Binding CurrentBook.ColumnPosition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Text="Count:"/>
                 <TextBox x:Name="CountBox" Text="{Binding CurrentBook.Count, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                
+                <TextBlock Text="Loss Reason:"/>
+                <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" VerticalAlignment="Top" Height="100" Text="{Binding Path=LossReason, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="OnlyFill this if reducing the number of books"
+                         IsEnabled="True"  />
             </StackPanel>
         </Border>
         <StackPanel Grid.ColumnSpan="2" Grid.Row="1">

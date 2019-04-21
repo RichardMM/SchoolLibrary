@@ -36,6 +36,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>avertis top logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -95,7 +98,12 @@
     <Compile Include="Migrations\201904201748176_sec.Designer.cs">
       <DependentUpon>201904201748176_sec.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904210708158_lostbookstt.cs" />
+    <Compile Include="Migrations\201904210708158_lostbookstt.Designer.cs">
+      <DependentUpon>201904210708158_lostbookstt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\LostBooks.cs" />
     <Compile Include="ViewModel\ViewBorrowTableItems.cs" />
     <Page Include="Launch\Pages\BorrowedItems.xaml">
       <SubType>Designer</SubType>
@@ -179,6 +187,9 @@
     <EmbeddedResource Include="Migrations\201904201748176_sec.resx">
       <DependentUpon>201904201748176_sec.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904210708158_lostbookstt.resx">
+      <DependentUpon>201904210708158_lostbookstt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -197,6 +208,8 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="avertis top logo.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -100,6 +100,21 @@ namespace SchoolLibrary.ViewModel
             }
         }
 
+        private string lossReason;
+        public string LossReason
+        {
+            get
+            {
+                lossReason = lossReason == null ? "" : lossReason;
+                return lossReason;
+            }
+            set
+            {
+                lossReason = value;
+                NotifyPropertyChanged();
+            }
+        }
+
 
         private List<BorrowerType> possibleUserTypes;
 
@@ -153,7 +168,7 @@ namespace SchoolLibrary.ViewModel
             foreach (var item in LibraryBooks)
             {
                 //MessageBox.Show(item.BorrowedItems.ToList().Count.ToString());
-                item.Available = item.Count - item.BorrowedItems.ToList().Count;
+                item.Available = item.Count - item.BorrowedItems.Where(p => p.Returned==false).ToList().Count;
             }
         }
 
@@ -181,9 +196,33 @@ namespace SchoolLibrary.ViewModel
              {
                  AppDbCxt.Books.Add(CurrentBook);
                  AppDbCxt.Entry(currentBook).State = currentBook.Id == 0 ? EntityState.Added : EntityState.Modified;
+                //get current number of current books in DB
+                int currentCount = 0;
+                if (AppDbCxt.Entry(currentBook).State==EntityState.Modified && AppDbCxt.Entry(CurrentBook).GetDatabaseValues().ToObject() is Book clonedBook)
+                {
+                    currentCount = clonedBook.Count;
+
+
+                }
+                // check if number reduced
+                bool reductionhappened = currentCount > CurrentBook.Count;
+                if (reductionhappened && LossReason =="")
+                {
+                   
+                    MessageBox.Show("You have reduced number of books and must provide a reason");
+                    return;
+                }
+
+                //save if reduction happened
+                if (reductionhappened)
+                {
+                    LostBook newLost = new LostBook { BookID = CurrentBook.Id, LossReason = LossReason };
+
+                    AppDbCxt.LostBooks.Add(newLost);
+                }
                  //DbConn.Entry(currentBook.BorrowedItems).State = DbConn.Entry(currentBook).State;
                  AppDbCxt.SaveChangesAsync();
-
+                LossReason = "";
                  MessageBox.Show(String.Format("{1} was Saved successfully \n Author - {0}", CurrentBook.Author, currentBook.Title));
                  CurrentBook = new Book();
              }
@@ -215,12 +254,21 @@ namespace SchoolLibrary.ViewModel
         {
             using(LibAppContext dbConn= new LibAppContext())
             {
+                if (CurrentBook.Available <= 0)
+                {
+                    MessageBox.Show("No Books are available to lend out");
+                    CurrentPage = new ViewBooks(this);
+                    return;
+                }
                 LendBook.BookId = CurrentBook.Id;
                 dbConn.BorrowedItems.Add(LendBook);
                 dbConn.SaveChanges();
+               
 
             }
             LoadBorrowed();
+            LoadBooks();
+            CurrentPage = new ViewBooks(this);
         }
         public void SaveBorrowedItemsState()
         {

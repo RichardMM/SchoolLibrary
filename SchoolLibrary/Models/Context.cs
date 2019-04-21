@@ -13,6 +13,7 @@ namespace SchoolLibrary.Models
         public DbSet<Borrower> Borrowers { get; set; }
         public DbSet<BorrowedItem> BorrowedItems { get; set; }
         public DbSet<BorrowerType> BorrowerTypes { get; set; }
+        public DbSet<LostBook> LostBooks { get; set; }
         public LibAppContext() : base("name=LibAppContext")
         {
 

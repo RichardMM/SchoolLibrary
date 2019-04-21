@@ -20,14 +20,25 @@ namespace SchoolLibrary.Models
         public string RowNo { get; set; }
         public string ColumnPosition { get; set; }
 
-        private int count;
-
         public DateTime LastUpdateDate { get; set; }
         [NotMapped]
         public int Available { get; set; }
         public ICollection<BorrowedItem> BorrowedItems { get; set; }
+
+        private int count;
         [Required]
-        public int Count { get; set; }
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+            set
+            {
+
+                count = value < 0 ? 0 : value;
+            }
+        }
 
         public Book()
         {
