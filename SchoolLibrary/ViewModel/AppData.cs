@@ -14,6 +14,8 @@ namespace SchoolLibrary.ViewModel
     using System.Collections.Generic;
     using System.Data;
     using System.Data.Entity;
+    using System.Security.Cryptography;
+    using SchoolLibrary.Utilities;
 
     public class AppViewModel : INotifyPropertyChanged
     {
@@ -304,6 +306,33 @@ namespace SchoolLibrary.ViewModel
 
                                      }).ToList();
             }
+        }
+
+        public void ChangeAdminDetails(string newPassword, string confirmPassword, string currentPassword)
+        {
+            string title = "Admin Details"
+            if (newPassword != confirmPassword)
+            {
+                MessageBox.Show("Passwords do not match", title, MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            User obj = AppDbCxt.Users.First(r => 1==1);
+            // check if current password matches provided
+            if(!obj.ConfirmPassword(currentPassword))
+            {
+                MessageBox.Show("Current Password Provided does not match stored password", title,MessageBoxButton.OK,MessageBoxImage.Error);
+                return;
+            }
+            obj.Name = UserName;
+            using (MD5 md5Hash = MD5.Create())
+            {
+                EncryptionTools enc = new EncryptionTools(md5Hash);
+                obj.Password = enc.GetMd5Hash(newPassword);
+            }
+
+            AppDbCxt.SaveChanges();
+            MessageBox.Show("Details Successfully changed", title, MessageBoxButton.OK, MessageBoxImage.Information);
+            CurrentPage = new ViewBooks(this);
         }
     }
 }

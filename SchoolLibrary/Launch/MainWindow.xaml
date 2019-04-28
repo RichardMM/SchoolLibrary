@@ -21,8 +21,9 @@
             <MenuItem Header="Add Books" x:Name="AddBooksButton" Click="NavigatePages"/>
             <MenuItem Header="Borrowers" x:Name="BorrowersButton" Click="NavigatePages"/>
             <MenuItem Header="Borrowed Books" x:Name="BorrowedBooksButton" Click="NavigatePages"/>
+            <MenuItem Header="Admin" x:Name="AdminButton" Click="NavigatePages"/>
         </Menu>
-        <ScrollViewer>
+        <ScrollViewer Height="1000">
             <Frame x:Name="PageHolder" Content="{Binding CurrentPage}" NavigationUIVisibility="Hidden" />
 
         </ScrollViewer>

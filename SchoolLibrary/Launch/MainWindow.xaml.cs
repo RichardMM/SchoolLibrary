@@ -40,10 +40,7 @@ namespace SchoolLibrary
             switch (senderName)
             {
                 case "HomeButton":
-
-
                     ViewModel.LoadBooks();
-                    
                     
                     ViewModel.CurrentPage = new ViewBooks(ViewModel);
                     break;
@@ -56,6 +53,9 @@ namespace SchoolLibrary
                     break;
                 case "BorrowedBooksButton":
                     ViewModel.CurrentPage = new BorrowedItemsView(ViewModel);
+                    break;
+                case "AdminButton":
+                    ViewModel.CurrentPage = new AdminPage(ViewModel);
                     break;
 
 
