@@ -20,7 +20,8 @@ namespace SchoolLibrary.ViewModel
     using OfficeOpenXml;
 
     using System.IO;
-
+    using SchoolLibrary.Migrations;
+    using System.Data.Entity.Migrations;
 
     public class AppViewModel : INotifyPropertyChanged
     {
@@ -159,6 +160,7 @@ namespace SchoolLibrary.ViewModel
 
         public AppViewModel()
         {
+
             CurrentPage = new Login(this); ;
             navBarVisibility = Visibility.Hidden;
             currentBook = new Book();
@@ -167,6 +169,15 @@ namespace SchoolLibrary.ViewModel
 
             registeredBorrowers = AppDbCxt.Borrowers.ToList();
             LoadBorrowed();
+        }
+        public void MigrateDb()
+        {
+           // Configuration cfg = new Configuration();
+           // LibAppContext obj = new LibAppContext();
+           // cfg.TargetDatabase = obj.
+
+           // DbMigrator dbMigrator = new DbMigrator(cfg);
+           // dbMigrator.Update();
         }
 
         public void LoadBooks()
@@ -354,7 +365,7 @@ namespace SchoolLibrary.ViewModel
                                    Id = item.Id,
                                    Title = books.Title,
                                    Author = books.Author,
-                                   WriteOffDate = item.LossDate,
+                                   //WriteOffDate = item.LossDate,
                                    Narration = item.LossReason
 
                                }

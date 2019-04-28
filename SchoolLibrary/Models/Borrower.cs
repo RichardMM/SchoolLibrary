@@ -31,7 +31,7 @@ namespace SchoolLibrary.Models
         public string IdentificationNumber { get; set; }
 
         private DateTime registrationDate;
-
+        [NotMapped]
         public DateTime RegistrationDate
         {
             get

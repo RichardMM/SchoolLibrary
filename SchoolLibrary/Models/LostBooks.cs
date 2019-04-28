@@ -14,6 +14,7 @@ namespace SchoolLibrary.Models
         public string LossReason { get; set; }
 
         private DateTime lossDate;
+        [NotMapped]
         public DateTime LossDate
         {
             get

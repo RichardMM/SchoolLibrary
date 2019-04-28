@@ -116,6 +116,10 @@
     <Compile Include="Migrations\201904281606520_newColumnBorrower.Designer.cs">
       <DependentUpon>201904281606520_newColumnBorrower.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904281707558_nrm.cs" />
+    <Compile Include="Migrations\201904281707558_nrm.Designer.cs">
+      <DependentUpon>201904281707558_nrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LostBooks.cs" />
     <Compile Include="Models\ReportModels\LostItemsModel.cs" />
@@ -215,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904281606520_newColumnBorrower.resx">
       <DependentUpon>201904281606520_newColumnBorrower.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904281707558_nrm.resx">
+      <DependentUpon>201904281707558_nrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
