@@ -29,6 +29,34 @@ namespace SchoolLibrary.Models
         public int TypeName_Id { get; set; }
         public virtual BorrowerType TypeName { get; set; }
         public string IdentificationNumber { get; set; }
+
+        private DateTime registrationDate;
+
+        public DateTime RegistrationDate
+        {
+            get
+            {
+               
+                    if (registrationDate == DateTime.MinValue)
+                    {
+                        registrationDate = DateTime.Now;
+                    }
+                    return registrationDate;
+                
+               
+
+                
+            }
+            set
+            {
+                
+                    registrationDate = value;
+              
+             
+                
+            }
+        }
+
     }
 
     public class BorrowerType

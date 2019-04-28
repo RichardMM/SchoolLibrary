@@ -3,6 +3,7 @@
 namespace SchoolLibrary.ViewModel
 {
     using SchoolLibrary.Models;
+    using SchoolLibrary.Models.ReportModels;
     using System.Linq;
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
@@ -16,6 +17,10 @@ namespace SchoolLibrary.ViewModel
     using System.Data.Entity;
     using System.Security.Cryptography;
     using SchoolLibrary.Utilities;
+    using OfficeOpenXml;
+
+    using System.IO;
+
 
     public class AppViewModel : INotifyPropertyChanged
     {
@@ -310,7 +315,7 @@ namespace SchoolLibrary.ViewModel
 
         public void ChangeAdminDetails(string newPassword, string confirmPassword, string currentPassword)
         {
-            string title = "Admin Details"
+            string title = "Admin Details";
             if (newPassword != confirmPassword)
             {
                 MessageBox.Show("Passwords do not match", title, MessageBoxButton.OK, MessageBoxImage.Error);
@@ -333,6 +338,83 @@ namespace SchoolLibrary.ViewModel
             AppDbCxt.SaveChanges();
             MessageBox.Show("Details Successfully changed", title, MessageBoxButton.OK, MessageBoxImage.Information);
             CurrentPage = new ViewBooks(this);
+        }
+
+        public void LoadReport(string ReportName)
+        {
+            LibAppContext conn = new LibAppContext();
+
+            switch(ReportName)
+            {
+                case "Lost_Books":
+                    List<LostItemsReport> res = (from item in conn.LostBooks
+                               join books in conn.Books on item.BookID equals books.Id
+                               select new LostItemsReport
+                               {
+                                   Id = item.Id,
+                                   Title = books.Title,
+                                   Author = books.Author,
+                                   WriteOffDate = item.LossDate,
+                                   Narration = item.LossReason
+
+                               }
+                               ).ToList();
+                    ExportListUsingEPPlus<LostItemsReport>(res, namePrefix: "Write off Books");
+                    break;
+                case "Registered_Borrowers":
+                    List<RegisteredBorrowers> borrowers = (from row in conn.Borrowers
+                                                           join names in conn.BorrowerTypes on row.TypeName_Id equals names.Id
+                                                           select new RegisteredBorrowers
+                                                           {
+                                                               Id = row.IdentificationNumber,
+                                                               Name = row.FirstName + " " + row.LastName,
+                                                               Email = row.EmailAddress,
+                                                               Type = names.TypeName
+                                                           }).ToList();
+                    ExportListUsingEPPlus(borrowers, "Registered Borrowers");
+                    break;
+                case "Borrowed_Books":
+                    ExportListUsingEPPlus(BorrowedBooksView,  "BorrowedBooks");
+                    break;
+
+                default:
+                    ExportListUsingEPPlus(LibraryBooks, "All Books");
+                    break;
+               
+            }
+            conn.Dispose();
+        }
+
+        public void ExportListUsingEPPlus<T>(List<T> data, string namePrefix)
+        {
+            if (!data.Any())
+            {
+                return;
+            }
+            //create avertis Library directory
+            var di = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + Path.DirectorySeparatorChar + "Avertis" + Path.DirectorySeparatorChar + "Library");
+            if (!di.Exists)
+            {
+                di.Create();
+            }
+            //create file path
+            string filePath = di.FullName + Path.DirectorySeparatorChar + namePrefix + DateTime.Now.ToString("_yyyy_MM_dd") + ".xlsx";
+
+            var fi = new FileInfo(filePath);
+            if (fi.Exists)
+            {
+                fi.Delete();  
+               
+            }
+
+            //write excel
+
+            ExcelPackage excel = new ExcelPackage();
+            var workSheet = excel.Workbook.Worksheets.Add("Report");
+            workSheet.Cells[1, 1].LoadFromCollection(data, true);
+            excel.SaveAs(fi);
+            System.Diagnostics.Process.Start(filePath);
+
         }
     }
 }

@@ -23,7 +23,10 @@
                         <Setter Property="Margin" Value="10,10,10,10"/>
                     </Style>
                 </StackPanel.Resources>
-                <TextBlock Text="Admin Details" FontSize="15" HorizontalAlignment="Center" FontWeight="Bold"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="AccountCircleOutline" Margin="0,3,4,0"/>
+                    <TextBlock Text="Admin Details" FontSize="15" FontWeight="Bold"/>
+                </StackPanel>
                 <TextBox materialDesign:HintAssist.Hint="New User Name" Text="{Binding Path=UserName}"/>
                 <PasswordBox materialDesign:HintAssist.Hint="Current Password" x:Name="CurrentPasswordBox"/>
                 <PasswordBox materialDesign:HintAssist.Hint="New Password" x:Name="NewPasswordBox"/>

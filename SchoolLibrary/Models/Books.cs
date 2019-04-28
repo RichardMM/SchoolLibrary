@@ -20,7 +20,26 @@ namespace SchoolLibrary.Models
         public string RowNo { get; set; }
         public string ColumnPosition { get; set; }
 
-        public DateTime LastUpdateDate { get; set; }
+        private DateTime lastUpdateDate;
+        public DateTime LastUpdateDate
+        {
+            get
+            {
+                if (lastUpdateDate == DateTime.MinValue)
+                {
+                    lastUpdateDate = DateTime.Now;
+                }
+                return lastUpdateDate;
+            }
+            set
+            {
+                
+                lastUpdateDate = value;
+                
+                
+                 
+            }
+        }
         [NotMapped]
         public int Available { get; set; }
         public ICollection<BorrowedItem> BorrowedItems { get; set; }

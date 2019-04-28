@@ -27,6 +27,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_4CCA2D6D4E62818FE263BB0C079C6BD5"
+        "OwnerKey" = "8:_7B39BDDF321E463CBE2C832043FE07A4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_61796EEABC86EB5F99D153D3A0FBD472"
         "OwnerKey" = "8:_7B39BDDF321E463CBE2C832043FE07A4"
         "MsmSig" = "8:_UNDEFINED"
@@ -106,12 +112,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B4793197DE72B9BF2B96F9E66BBE36C3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_7B39BDDF321E463CBE2C832043FE07A4"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -148,6 +148,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_4CCA2D6D4E62818FE263BB0C079C6BD5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_A8653E7D3F448B7DC314FA0ABA9E1C07"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -161,6 +167,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_2BB7AAE15EB0F8DCDCBA22F47DC7B31E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B4793197DE72B9BF2B96F9E66BBE36C3"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -181,6 +193,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -197,6 +217,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -271,6 +307,37 @@
                     }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_C71D246AC1F0476A84B8A9D520C9A4F1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4CCA2D6D4E62818FE263BB0C079C6BD5"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:EPPlus, Version=4.5.3.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_4CCA2D6D4E62818FE263BB0C079C6BD5"
+                    {
+                    "Name" = "8:EPPlus.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:EPPlus.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_C71D246AC1F0476A84B8A9D520C9A4F1"
@@ -547,13 +614,13 @@
             "Name" = "8:#1919"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
-            "Transitive" = "11:FALSE"
+            "Transitive" = "11:TRUE"
             "Property" = "8:ProgramMenuFolder"
                 "Folders"
                 {
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_BEC9E424C7524950AC03E306242B71B4"
                     {
-                    "Name" = "8:School Library System"
+                    "Name" = "8:Avertis Solutions"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
@@ -592,15 +659,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Avertis School Library"
-        "ProductCode" = "8:{E5D3F1F4-B7E2-4C31-BC0F-C31AD4E9FFA9}"
-        "PackageCode" = "8:{668F4F46-F1D9-4D76-B9D3-BE58068F3E91}"
+        "ProductCode" = "8:{36A29B63-500A-476E-8DFE-C399D168743D}"
+        "PackageCode" = "8:{EC962B57-10DF-4D9B-85F6-F0DEC0B79CF7}"
         "UpgradeCode" = "8:{3839379F-0EA3-4CB4-8F96-107A107AE80C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:1.1.1"
         "Manufacturer" = "8:Avertis Solutions"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://www.avertissolution.com/"

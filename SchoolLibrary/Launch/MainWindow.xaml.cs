@@ -105,6 +105,11 @@ namespace SchoolLibrary
 
         }
 
+        private void Reports_Click(object sender, RoutedEventArgs e)
+        {
+            string name = ((MenuItem)sender).Name.ToString();
+            ViewModel.LoadReport(name);
+        }
     }
        
 }

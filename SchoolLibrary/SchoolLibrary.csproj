@@ -46,6 +46,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus, Version=4.5.3.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.3.1\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Protobuf, Version=3.7.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.7.0\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -105,8 +108,18 @@
     <Compile Include="Migrations\201904210708158_lostbookstt.Designer.cs">
       <DependentUpon>201904210708158_lostbookstt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904281535372_newColumn.cs" />
+    <Compile Include="Migrations\201904281535372_newColumn.Designer.cs">
+      <DependentUpon>201904281535372_newColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904281606520_newColumnBorrower.cs" />
+    <Compile Include="Migrations\201904281606520_newColumnBorrower.Designer.cs">
+      <DependentUpon>201904281606520_newColumnBorrower.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LostBooks.cs" />
+    <Compile Include="Models\ReportModels\LostItemsModel.cs" />
+    <Compile Include="Models\ReportModels\RegisteredBorrowers.cs" />
     <Compile Include="ViewModel\ViewBorrowTableItems.cs" />
     <Page Include="Launch\Pages\AdminPage.xaml">
       <SubType>Designer</SubType>
@@ -196,6 +209,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904210708158_lostbookstt.resx">
       <DependentUpon>201904210708158_lostbookstt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904281535372_newColumn.resx">
+      <DependentUpon>201904281535372_newColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904281606520_newColumnBorrower.resx">
+      <DependentUpon>201904281606520_newColumnBorrower.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

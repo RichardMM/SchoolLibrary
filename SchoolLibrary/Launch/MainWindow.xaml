@@ -21,6 +21,13 @@
             <MenuItem Header="Add Books" x:Name="AddBooksButton" Click="NavigatePages"/>
             <MenuItem Header="Borrowers" x:Name="BorrowersButton" Click="NavigatePages"/>
             <MenuItem Header="Borrowed Books" x:Name="BorrowedBooksButton" Click="NavigatePages"/>
+            <MenuItem Header="Reports" x:Name="ReportsButton">
+                <MenuItem Header="Lost Books" x:Name="Lost_Books" Click="Reports_Click"/>
+                <MenuItem Header="All Books" x:Name="All_Books" Click="Reports_Click"/>
+                <MenuItem Header="Registered Borrowers" x:Name="Registered_Borrowers" Click="Reports_Click"/>
+                <MenuItem Header="Borrowed Books" x:Name="Borrowed_Books" Click="Reports_Click"/>
+           
+            </MenuItem>
             <MenuItem Header="Admin" x:Name="AdminButton" Click="NavigatePages"/>
         </Menu>
         <ScrollViewer Height="1000">
